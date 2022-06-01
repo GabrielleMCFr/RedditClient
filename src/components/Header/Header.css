@@ -1,0 +1,33 @@
+header {
+    color: var(--color-branding);
+    background: var(--color-foreground);
+    box-shadow: var(--box-shadow);
+    height: 64px;
+    padding: 0 var(--spacing-5);
+    margin-bottom: var(--spacing-2);
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: var(--spacing-2);
+    align-content: center;
+   
+  }
+
+header .logo {
+    font-weight: bold;
+    padding: var(--spacing-1) 0;
+    grid-column: 1/2;
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  header .logo-icon {
+    grid-column: 2/3;
+    margin-right: var(--spacing-1);
+    font-size: 2rem;
+  }
+  
+  header span {
+    color: var(--color-text-header);
+  }

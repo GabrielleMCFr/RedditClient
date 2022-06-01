@@ -1,0 +1,16 @@
+footer {
+    color: var(--color-branding);
+    background: var(--color-foreground);
+    box-shadow: var(--box-shadow);
+    height: 64px;
+    width: 100%;
+    padding: 0 var(--spacing-5);
+    margin-top: var(--spacing-2);
+    display: flex;
+    justify-content: center;
+}
+
+footer span {
+    padding-top: var(--spacing-2);
+    color: var(--color-text-header);
+}
