@@ -1,4 +1,5 @@
-import './RedditPost.css'
+import React  from 'react';
+import './RedditPost.css';
 
 export default function RedditPost() {
     return (
@@ -10,7 +11,7 @@ export default function RedditPost() {
                 <div className='post-container'>
                     <h3 className='post-title'>I am a title</h3>
                     <div className='post-image-container'>
-                        <img src="../../images/reddit.png" />
+                        <img src={require("../../images/reddit.png")} />
                     </div>
                     <div className='post-details'>
                         <span className='author-details'>

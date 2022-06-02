@@ -1,6 +1,6 @@
-import SearchBar from "../SearchBar/SearchBar"
-import "./Header.css"
-
+import React  from 'react';
+import SearchBar from "../SearchBar/SearchBar";
+import "./Header.css";
 
 export default function Header() {
     return (

@@ -1,4 +1,5 @@
 import RedditPost from "../RedditPost/RedditPost";
+import React  from 'react';
 
 
 // react component acting as the container of the reddit posts.
