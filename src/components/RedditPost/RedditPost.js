@@ -1,26 +1,29 @@
 import React  from 'react';
 import './RedditPost.css';
 
-export default function RedditPost() {
+export default function RedditPost({post}) {
     return (
         <div className='card undefined'>
             <div className='post-wrapper'>
                 <div className='post-votes-container'>
-                    buttons
+                <button type="button" class="icon-action-button up-vote false" aria-label='Up vote'>⬆</button>
+                    <p className='post-votes-value'>{post.score}</p>
+                    <button type="button" class="icon-action-button down-vote false" aria-label='Down vote'>⬇</button>
                 </div>
                 <div className='post-container'>
-                    <h3 className='post-title'>I am a title</h3>
+                    <h3 className='post-title'>{post.title}</h3>
                     <div className='post-image-container'>
-                        <img src={require("../../images/reddit.png")} />
+                        {post.url && <img src={post.url} className="post-image"/>}
+                        
                     </div>
                     <div className='post-details'>
                         <span className='author-details'>
                             
-                            <span className='author-username'>pseudo</span>
+                            <span className='author-username'>{post.author}</span>
                         </span>
                         <span>timestamp</span>
                         <span className='post-comments-container'>
-                            <button type="button" className="icon-action-button false" aria-label="Show Comments">Comments</button>
+                            <button type="button" className="icon-action-button false" aria-label="Show Comments">{post.num_comments}</button>
                         </span>
                     </div>
                 </div>
