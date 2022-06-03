@@ -1096,7 +1096,14 @@ export const redditPostsSlice = createSlice({
         searchTerm: '',
         selectedSubreddit: "r/Home"
     },
-    reducers: {},
+    reducers: {
+      setSearchTerm: (state, action) => {
+        state.searchTerm = action.payload
+      },
+      setSelectedSubreddit: (state, action) => {
+        state.selectedSubreddit = action.payload
+      }
+    },
     /*
     extraReducers: (builder) => {
         builder
@@ -1118,6 +1125,22 @@ export const redditPostsSlice = createSlice({
     */
 })
 
+
+export const selectSearchTerm = (state) => state.redditPosts.searchTerm;
 export const selectAllPosts = (state) => state.redditPosts.posts;
+export const selectFilteredPosts = (state) => {
+  const allPosts = selectAllPosts(state);
+  if (!state.redditPosts.searchTerm) {
+    return allPosts
+  }
+  else {
+    const search = selectSearchTerm(state).toLowerCase();
+    return allPosts.filter((post) => {
+      return post.title.toLowerCase().includes(search)
+    })
+  }
+}
+
 export const isLoading = (state) => state.redditPosts.isLoading;
+export const { setSearchTerm } = redditPostsSlice.actions;
 export default redditPostsSlice.reducer;
