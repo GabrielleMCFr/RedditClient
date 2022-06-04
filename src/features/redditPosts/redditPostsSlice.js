@@ -1094,7 +1094,7 @@ export const redditPostsSlice = createSlice({
         hasError: false,
         isLoading: false,
         searchTerm: '',
-        selectedSubreddit: "r/Home"
+        selectedSubreddit: "/r/Home/"
     },
     reducers: {
       setSearchTerm: (state, action) => {
@@ -1125,7 +1125,7 @@ export const redditPostsSlice = createSlice({
     */
 })
 
-
+export const selectSubreddit = (state) => state.redditPosts.selectedSubreddit;
 export const selectSearchTerm = (state) => state.redditPosts.searchTerm;
 export const selectAllPosts = (state) => state.redditPosts.posts;
 export const selectFilteredPosts = (state) => {
@@ -1142,5 +1142,5 @@ export const selectFilteredPosts = (state) => {
 }
 
 export const isLoading = (state) => state.redditPosts.isLoading;
-export const { setSearchTerm } = redditPostsSlice.actions;
+export const { setSearchTerm, setSelectedSubreddit } = redditPostsSlice.actions;
 export default redditPostsSlice.reducer;

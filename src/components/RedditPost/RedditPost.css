@@ -125,4 +125,5 @@
   
   .showing-comments {
     color: var(--color-branding);
+    background-color: var(--color-success);
   }

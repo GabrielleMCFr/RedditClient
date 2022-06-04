@@ -4,6 +4,7 @@ import "./SubredditsList.css"
 import Subreddit from "../SubredditCard/Subreddit";
 import { useDispatch, useSelector } from 'react-redux';
 import { selectSubreddits, isLoading } from '../../features/subreddits/subredditsSlice';
+import { selectSubreddit } from '../../features/redditPosts/redditPostsSlice';
 
 export default function SubredditsList() {
     //const dispatch = useDispatch();
@@ -15,6 +16,8 @@ export default function SubredditsList() {
         dispatch(loadSubreddits);
       }, [dispatch]);
     */
+
+    const actualSubreddit = useSelector(selectSubreddit);
     
     if (subredditsAreLoading) {
         return <div>loading state</div>;
@@ -26,7 +29,7 @@ export default function SubredditsList() {
                 <ul className="subreddits-list">
                     {
                         allSubreddits?.map((subreddit) => {
-                            return <li key={subreddit.id}><Subreddit subreddit={subreddit}/></li>
+                            return <li key={subreddit.id} className={actualSubreddit===subreddit.url ? 'selected-subreddit' : ''}><Subreddit subreddit={subreddit}/></li>
                         })
                     }
                 </ul>

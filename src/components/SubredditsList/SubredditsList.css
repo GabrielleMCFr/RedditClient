@@ -29,6 +29,7 @@
     border-left: 5px solid var(--color-branding);
     background: var(--color-branding-transparent);
   }
+
   
   .subreddit-card button:hover {
     background: var(--color-on-hover);
