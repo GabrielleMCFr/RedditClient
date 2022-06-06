@@ -1,21 +1,21 @@
 // react component of the container of the subreddits 
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./SubredditsList.css"
 import Subreddit from "../SubredditCard/Subreddit";
 import { useDispatch, useSelector } from 'react-redux';
-import { selectSubreddits, isLoading } from '../../features/subreddits/subredditsSlice';
+import { selectSubreddits, isLoading, loadSubreddits } from '../../features/subreddits/subredditsSlice';
 import { selectSubreddit } from '../../features/redditPosts/redditPostsSlice';
 
 export default function SubredditsList() {
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const allSubreddits = useSelector(selectSubreddits);
     const subredditsAreLoading = useSelector(isLoading);
 
-    /*
+   
     useEffect(() => {
-        dispatch(loadSubreddits);
+        dispatch(loadSubreddits());
       }, [dispatch]);
-    */
+    
 
     const actualSubreddit = useSelector(selectSubreddit);
     
