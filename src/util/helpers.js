@@ -15,3 +15,22 @@ export function containsObject(obj, list) {
   }
   return false;
 }
+
+export function checkForKeyInArrayOfObjects(array, key) {
+  for (let obj in array) {
+    let keys = Object.keys(obj)
+    if (keys[0] === key) {
+      return true
+    }
+  }
+  return false
+}
+
+export function FilterComsById(comments, id) {
+  for (let comment in comments) {
+    if (comment.hasOwnProperty(id)) {
+      return comment;
+    }
+  }
+  return false
+}

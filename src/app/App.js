@@ -9,12 +9,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <main>
+      <div className='redditposts-main'>
       <RedditPostsList />
+      </div>
       <div id="subreddits-sidebar">
         <SubredditsList />
       </div>
-      </main>
       <Footer />
     </div>
   );

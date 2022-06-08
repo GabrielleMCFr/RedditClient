@@ -3,6 +3,8 @@ html,
 #root {
   height: 100%;
   min-width: 180px;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 
@@ -15,8 +17,8 @@ html,
   --color-text-body: #6f6f6f;
   --color-text-secondary: #717171;
   --color-text-invert: #ffffff;
-  --color-text-link: #4ec3f5;
-  --color-branding: #3d5af1;
+  --color-text-link: #c499df;
+  --color-branding: #a44ee5;
   --color-branding-transparent: #3d5af140;
 
   --color-alert: #ff304f;
@@ -44,23 +46,31 @@ body {
   background: var(--color-background);
   color: var(--color-text-body);
   font-size: 16px;
+  
 }
 
 p {
   margin: 0;
 }
 
+.App {
+  
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 100px 1fr 64px;
+  grid-column-gap: var(--spacing-2);
+  grid-template-areas: "header header"
+                          "main sidebar"
+                          "footer footer"
 
-main {
-    margin: var(--spacing-2);
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: var(--spacing-2);
-    grid-template-areas: "main sidebar"
-  }
+}
 
-#subreddits-sidebar {
+
+.subreddits-sidebar {
   grid-area: sidebar;
 }
 
+.redditposts-main {
+  grid-area: main;
+  margin-left: var(--spacing-2);
+}

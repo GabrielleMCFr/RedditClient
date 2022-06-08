@@ -79,19 +79,27 @@
   }
   
   .up-vote:hover {
-    color: var(--color-success) !important;
+    fill: var(--color-success) !important;
   }
   
   .up-vote.active {
     color: var(--color-success) !important;
   }
+
+  .up-vote.active svg path{
+    fill: var(--color-success) !important;
+  }
   
   .down-vote:hover {
-    color: var(--color-alert) !important;
+    fill: var(--color-alert) !important;
   }
   
   .down-vote.active {
     color: var(--color-alert) !important;
+  }
+
+  .down-vote.active svg path{
+    fill: var(--color-alert) !important;
   }
   
   .icon-action-button {
@@ -125,5 +133,4 @@
   
   .showing-comments {
     color: var(--color-branding);
-    background-color: var(--color-success);
   }

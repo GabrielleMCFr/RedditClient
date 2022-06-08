@@ -1,4 +1,5 @@
 footer {
+    grid-area: footer;
     color: var(--color-branding);
     background: var(--color-foreground);
     box-shadow: var(--box-shadow);
