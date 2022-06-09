@@ -7,6 +7,10 @@
     margin-top: 0;
     color: var(--color-text-header);
   }
+
+  .loading-item{
+    margin-bottom: var(--spacing-2);
+  }
   
   .subreddit-card button {
     background: none;
