@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { areComsLoading, loadComments, selectAllComs } from "../../features/Comments/CommentsSlice";
-import { checkForKeyInArrayOfObjects, FilterComsById } from "../../util/helpers";
 import Comment from "../Comment/Comment";
 import './CommentsList.css';
 import Skeleton from 'react-loading-skeleton'
@@ -11,21 +10,12 @@ export default function CommentsList ({permalink, id, num_comments}) {
     const dispatch = useDispatch();
     let allComs = useSelector(selectAllComs);
     const isLoading = useSelector(areComsLoading);
-    //const [alreadyLoaded, setAlreadyLoaded] = useState(false);
 
     useEffect(() => {    
                 dispatch(loadComments([permalink, id]))
-                //setAlreadyLoaded(true);
    
     }, [dispatch, id, permalink])
 
-    /*
-    if (alreadyLoaded) {
-        allComs = FilterComsById(allComs, id)
-        console.log(id)
-        console.log(allComs)
-    }
-    */
 
     if (!isLoading && allComs.length === 0){
         return (<div>No comments yet.</div>)

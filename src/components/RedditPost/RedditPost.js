@@ -1,12 +1,9 @@
-import React, { useEffect, useState }  from 'react';
-import { useDispatch } from 'react-redux';
-import { loadComments } from '../../features/Comments/CommentsSlice.js';
+import React, { useState }  from 'react';
 import { formatTimestamp } from '../../util/helpers.js';
 import CommentsList from '../CommentsList/CommentsList.js';
 import './RedditPost.css';
 
 export default function RedditPost({post}) {
-    const dispatch = useDispatch();
     const [upIsActive, setUpActive] = useState(false);
     const [downIsActive, setDownActive] = useState(false);
     const [showComments, setShowComments] = useState(false);
@@ -38,6 +35,7 @@ export default function RedditPost({post}) {
         
     }
     // CORRIGER QUAND LES IMGS SONT DES VIDEOS OU GALLERY IMG CEST LA MERDE DOIT Y AVOIR UN TRUC.
+    // if a vote is active : 
     if (!upIsActive && !downIsActive) {
         return (
             <div className='card undefined'>
@@ -54,7 +52,7 @@ export default function RedditPost({post}) {
                     <div className='post-container'>
                         <h3 className='post-title '>{post.title}</h3>
                         {isImage && <div className='post-image-container'>
-                            {post.url && <img src={post.url} className="post-image"/>}
+                            {post.url && <img src={post.url} className="post-image" alt=""/>}
                             
                         </div>}
                         
@@ -78,6 +76,7 @@ export default function RedditPost({post}) {
         )
     }
 
+    // if no vote is active
     else {
         return (
             <div className='card undefined'>
@@ -94,7 +93,7 @@ export default function RedditPost({post}) {
                     <div className='post-container'>
                         <h3 className='post-title '>{post.title}</h3>
                         {isImage && <div className='post-image-container'>
-                            {post.url && <img src={post.url} className="post-image"/>}
+                            {post.url && <img src={post.url} className="post-image" alt=""/>}
                             
                         </div>}
                         <div className='post-details'>

@@ -6,7 +6,7 @@ export default function Header() {
     return (
         <header>
             <div className="logo">
-                <h1>Mini Reddit</h1>
+                <h1><span>Mini</span> Reddit</h1>
             </div>
             
             <SearchBar />

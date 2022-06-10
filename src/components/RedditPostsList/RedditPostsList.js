@@ -19,7 +19,7 @@ export default function RedditPostsList() {
     const rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     if (!postsAreLoading && posts.length === 0) {
-        return <div className='main-content'>No post matches your query</div>
+        return <div id='main-content'>No post matches your query</div>
     }
 
     
@@ -29,7 +29,7 @@ export default function RedditPostsList() {
             postsAreLoading ?
             rows?.map((row) => {
                 return (
-                    <div className='card undefined'>
+                    <div className='card undefined' key={row}>
                         <div className='post-wrapper'>
                             <div className='post-votes-container'>
                             <button type="button" className="icon-action-button up-vote false" aria-label='Up vote'>

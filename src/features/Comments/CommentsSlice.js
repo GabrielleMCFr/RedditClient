@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { containsObject } from "../../util/helpers";
 
 const API_ROOT = 'https://www.reddit.com';
 
@@ -30,9 +29,8 @@ export const CommentsSlice = createSlice({
         .addCase(loadComments.fulfilled, (state, action) => {
             state.hasComsError = false;
             state.areComsLoading = false;
-            if (!containsObject(action.payload, state.comments)) {
-                state.comments = action.payload
-            }  
+            state.comments = action.payload
+             
         })
         .addCase(loadComments.rejected, (state) => {
             state.hasComsError = true;
