@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import RedditPost from "../RedditPost/RedditPost";
+import './RedditPostsList.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { isLoading, selectFilteredPosts, selectSubreddit, loadRedditPosts } from '../../features/redditPosts/redditPostsSlice';
 import Skeleton from 'react-loading-skeleton'
@@ -19,7 +20,10 @@ export default function RedditPostsList() {
     const rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     if (!postsAreLoading && posts.length === 0) {
-        return <div id='main-content'>No post matches your query</div>
+        return ( 
+            <div id='error-posts'>
+                <p>Oops, we can't seem to find a post to match your query! Try again.</p>
+            </div>)
     }
 
     

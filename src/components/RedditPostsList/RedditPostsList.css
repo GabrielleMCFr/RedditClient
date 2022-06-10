@@ -7,3 +7,11 @@
     width: 100%;
     border-radius: var(--radius-2);
   }
+
+#error-posts {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    padding: var(--spacing-3);
+    color: var(--color-branding);
+}
