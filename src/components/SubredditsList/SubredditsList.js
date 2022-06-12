@@ -13,13 +13,13 @@ export default function SubredditsList() {
     const allSubreddits = useSelector(selectSubreddits);
     const subredditsAreLoading = useSelector(isLoading);
 
+    let actualSubreddit = useSelector(selectSubreddit);
    
     useEffect(() => {
         dispatch(loadSubreddits());
       }, [dispatch]);
-    
 
-    const actualSubreddit = useSelector(selectSubreddit);
+
     const rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
    
 

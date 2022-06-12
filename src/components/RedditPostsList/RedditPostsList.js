@@ -2,20 +2,27 @@ import React, { useEffect } from 'react';
 import RedditPost from "../RedditPost/RedditPost";
 import './RedditPostsList.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { isLoading, selectFilteredPosts, selectSubreddit, loadRedditPosts } from '../../features/redditPosts/redditPostsSlice';
+import { isLoading, selectFilteredPosts, selectSubreddit, loadRedditPosts, setSelectedSubreddit } from '../../features/redditPosts/redditPostsSlice';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { useLocation} from 'react-router-dom';
 
 
 export default function RedditPostsList() {
     const dispatch = useDispatch();
     const posts = useSelector(selectFilteredPosts);
     const postsAreLoading = useSelector(isLoading);
-    let actualSubreddit = useSelector(selectSubreddit)
+    let actualSubreddit = useSelector(selectSubreddit);
+    let location = useLocation();
+    let subredditLocation = location.pathname.slice(10)
     
+    // react to history change directly in the browser.
     useEffect(() => {
-        dispatch(loadRedditPosts(actualSubreddit));
-      }, [dispatch, actualSubreddit]);
+        dispatch(loadRedditPosts(subredditLocation));
+        if (subredditLocation !== actualSubreddit) {
+            dispatch(setSelectedSubreddit(subredditLocation))
+        }
+      }, [dispatch, subredditLocation, location]);
 
     const rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
