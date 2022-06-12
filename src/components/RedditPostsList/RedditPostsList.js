@@ -18,11 +18,16 @@ export default function RedditPostsList() {
     
     // react to history change directly in the browser.
     useEffect(() => {
-        dispatch(loadRedditPosts(subredditLocation));
+        if (!subredditLocation) {
+            dispatch(loadRedditPosts('/r/Home'))
+        }
+        else {
+            dispatch(loadRedditPosts(subredditLocation));
         if (subredditLocation !== actualSubreddit) {
             dispatch(setSelectedSubreddit(subredditLocation))
         }
-      }, [dispatch, subredditLocation, location]);
+        }
+      }, [dispatch, subredditLocation, location, actualSubreddit]);
 
     const rows = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 

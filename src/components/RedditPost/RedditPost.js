@@ -8,10 +8,15 @@ export default function RedditPost({post}) {
     const [downIsActive, setDownActive] = useState(false);
     const [showComments, setShowComments] = useState(false);
     let isImage = false;
+    let isVideo = false;
     
     // check for valid image PB WITH RENDERED SIZE EST FLOU
     if (post.url.includes('.jpg') || post.url.includes('.png')) {
         isImage = true;
+    }
+
+    if (post.is_video) {
+        isVideo = true;
     }
 
     const toggleComments = () => {
@@ -54,6 +59,12 @@ export default function RedditPost({post}) {
                         {isImage && <div className='post-image-container'>
                             {post.url && <img src={post.url} className="post-image" alt=""/>}
                             
+                        </div>}
+                        
+
+                        {isVideo && <div className='post-image-container'>
+                        {post.secure_media.reddit_video.fallback_url && <video src={post.secure_media.reddit_video.fallback_url} controls className="post-image"></video>}
+                        
                         </div>}
                         
                         <div className='post-details'>
