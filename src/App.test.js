@@ -5,7 +5,7 @@ import { store } from './app/store';
 import App from './app/App';
 import subredditsReducer, { loadSubreddits } from './features/subreddits/subredditsSlice'
 import redditPostsReducer, { loadRedditPosts, setSearchTerm, setSelectedSubreddit } from './features/redditPosts/redditPostsSlice'
-import commentsReducer, { loadComments } from './features/Comments/CommentsSlice'
+import commentsReducer, { loadComments } from './features/Comments/CommentsSlice';
 
 test('the app renders', () => {
   const { getByText } = render(
@@ -194,7 +194,6 @@ describe("Testing reducers", () => {
   })
 })
 
-// TEST COMPONENTS
 
 
 

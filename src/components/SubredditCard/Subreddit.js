@@ -17,10 +17,11 @@ export default function Subreddit({subreddit}) {
         // same than with subreddit.display_name_prefixed
         
     }
+    
 
     return (
         <Link to={`subreddit${subreddit.url}`}>
-        <button type="button" onClick={subredditChangeHandler}> 
+        <button type="button" onClick={subredditChangeHandler} aria-label={subreddit.display_name}> 
         <img className='subreddit-icon'
         src= {subreddit.icon_img ? subreddit.icon_img : require("../../images/reddit-logo.png")}
         alt=""/>

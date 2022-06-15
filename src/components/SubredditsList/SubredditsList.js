@@ -26,7 +26,7 @@ export default function SubredditsList() {
     return (
             <div className="card subreddit-card">
                 <h2> Subreddits</h2>
-                <ul className="subreddits-list">
+                <ul className="subreddits-list" aria-label="List of subreddits">
                     {
                         subredditsAreLoading ? 
                         rows?.map((row) => {

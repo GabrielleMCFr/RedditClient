@@ -57,7 +57,7 @@ export default function RedditPost({post}) {
                     <div className='post-container'>
                         <h3 className='post-title '>{post.title}</h3>
                         {isImage && <div className='post-image-container'>
-                            {post.url && <img src={post.url} className="post-image" alt=""/>}
+                            {post.url && <img src={post.url} className="post-image" alt="post-image"/>}
                             
                         </div>}
                         
