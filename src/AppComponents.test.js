@@ -6,6 +6,9 @@ import { setupServer } from 'msw/node';
 import { render, fireEvent, screen } from './tests-utils'
 
 
+// TESTS OK 15/06/22 IF REDOING TESTS IS NEEDED, MAKE SURE THE GRAB THE RIGHT STRINGS TO EXPECT BY CHECKING THE JSON ENDPOINTS FIRST
+
+
 // We use msw to intercept the network request during the test,
 // and return the response a mock post after 150ms
 // when receiving a get request to the `/api/user` endpoint
@@ -49,6 +52,24 @@ test('fetches & receives posts in home page', async () => {
     fireEvent.click(await screen.findByText(/AskReddit/i))
     // See what we're supposed to receive first and change title accordingly. (reddit.com/r/AskReddit.json)
     expect(await screen.findByText(/confession/i)).toBeInTheDocument()
+  })
+
+  // check comments appear just fine
+  test('comments appear on toggle', async () => {
+    render(<App/>)
+    fireEvent.click(await screen.findByText(/movies/i))
+    fireEvent.click(await screen.findByRole('button', {name: /Show Comments vctevv/i}))
+    // leave the time to upload, or it just tries to grab the skeleton
+    const myTimeout = setTimeout(expect(await screen.findByText(/In addition to SHUDDER/i)).toBeInTheDocument(), 10000);
+  })
+
+  test('comments disappear on toggle', async () => {
+    render(<App/>)
+
+    fireEvent.click(await screen.findByRole('button', {name: /Show Comments vctevv/i}))
+    fireEvent.click(await screen.findByRole('button', {name: /Show Comments vctevv/i}))
+    expect(await screen.queryByText(/In addition to SHUDDER/i)).not.toBeInTheDocument()
+
   })
   
 
